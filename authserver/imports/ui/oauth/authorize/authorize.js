@@ -1,4 +1,8 @@
 import { Template } from 'meteor/templating'
+import { Meteor } from 'meteor/meteor'
+import { ReactiveDict } from 'meteor/reactive-dict'
+import '../../login/login'
+import './authorize.html'
 
 // Subscribe the list of already authorized clients
 // to auto accept
@@ -14,12 +18,12 @@ Template.authorize.onCreated(function () {
 // Get the login token to pass to oauth
 // This is the best way to identify the logged user
 Template.authorize.helpers({
-  loadComplete() {
+  loadComplete () {
     const instance = Template.instance()
     return instance.state.get('authorizedSubReady')
   },
   getToken: function () {
-    return localStorage.getItem('Meteor.loginToken')
+    return window.localStorage.getItem('Meteor.loginToken')
   }
 })
 
@@ -32,8 +36,7 @@ Template.authorize.onRendered(function () {
     console.log(user)
     if (user && user.oauth && user.oauth.authorizedClients && user.oauth.authorizedClients.indexOf(data.client_id()) > -1) {
       c.stop()
-      $('button').click()
+      window.$('button').click()
     }
   })
 })
-

@@ -1,4 +1,5 @@
-import { Schema } from '../imports/api/schema'
+import { Schema } from '../../../api/schema'
+import './createUser.html'
 
 const createUserSchema = Schema.create({
   username: String,

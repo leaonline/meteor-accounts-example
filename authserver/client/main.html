@@ -1,10 +1,13 @@
 <head>
-    <title>authserver</title>
+	<title>authserver</title>
 </head>
 
 <template name="layout">
-    {{#if currentUser}}
-        {{> logout}}
-    {{/if}}
-    {{> yield}}
+	<div class="container">
+		{{> nav}}
+		{{#if currentUser}}
+			{{> logout}}
+		{{/if}}
+		{{> yield}}
+	</div>
 </template>

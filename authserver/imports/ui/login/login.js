@@ -1,4 +1,8 @@
-import { Schema } from '../imports/api/schema'
+import { Template } from 'meteor/templating'
+import { Meteor } from 'meteor/meteor'
+import { ReactiveDict } from 'meteor/reactive-dict'
+import { Schema } from '../../api/schema'
+import './login.html'
 
 const loginSchema = Schema.create({
   user: String,
