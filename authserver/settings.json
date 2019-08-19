@@ -1,0 +1,13 @@
+{
+  "oauth": {
+    "secret":"supersecret1234",
+    "clientApp": "clientAppId1234",
+    "accessTokenUrl": "/oauth/token",
+    "identityUrl": "/oauth/account"
+  },
+  "public": {
+    "oauth": {
+      "dialogUrl": "/dialog/oauth"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<head>
+    <title>clientapp</title>
+</head>
+
+<body>
+{{#with currentUser}}
+    <h1>Loggin in!</h1>
+    <pre><code>{{stringify this}}</code></pre>
+    {{>logout}}
+{{else}}
+    {{> login}}
+{{/with}}
+</body>
+
+<template name="logout">
+    <button class="loginButton">Click Me to login with lea</button>
+</template>
+
+
+<template name="login">
+    <button class="loginButton">Click Me to login with lea</button>
+</template>
+

@@ -1,0 +1,22 @@
+<template name="authorize">
+    {{#unless loadComplete}}
+        Loading, please wait...
+    {{else}}
+        {{#if currentUser}}
+            <form method="post" action="{{redirect_uri}}" role="form" class="{{#unless Template.subscriptionsReady}}hidden{{/unless}}">
+                <h2>Authorise</h2>
+                <input type="text" name="allow" value="yes">
+                <input type="text" name="token" value="{{getToken}}">
+                <input type="text" name="client_id" value="{{client_id}}">
+                <input type="text" name="redirect_uri" value="{{redirect_uri}}">
+                <input type="text" name="response_type" value="code">
+                <button type="submit">Authorise</button>
+            </form>
+            {{#unless Template.subscriptionsReady}}
+                loading...
+            {{/unless}}
+        {{else}}
+            {{> login}}
+        {{/if}}
+    {{/unless}}
+</template>

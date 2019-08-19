@@ -1,0 +1,10 @@
+<head>
+    <title>authserver</title>
+</head>
+
+<template name="layout">
+    {{#if currentUser}}
+        {{> logout}}
+    {{/if}}
+    {{> yield}}
+</template>

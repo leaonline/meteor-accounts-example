@@ -1,0 +1,11 @@
+<template name="createUser">
+    {{> quickForm id="createUserForm" type="normal" schema=createUserSchema }}
+
+    {{#each errors}}
+        <div class="alert alert-danger">
+            <strong>{{this.error}}</strong>
+            <span>{{this.reason}}</span>
+            <span>{{this.details}}</span>
+        </div>
+    {{/each}}
+</template>
