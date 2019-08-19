@@ -8,7 +8,7 @@ Template.registerHelper('stringify', function (obj) {
 })
 
 Tracker.autorun(() => {
-  console.log(Accounts.loginServicesConfigured())
+  console.log('services configured: ', Accounts.loginServicesConfigured())
 })
 
 Template.logout.events({

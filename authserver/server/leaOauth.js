@@ -1,7 +1,7 @@
 import { Meteor } from "meteor/meteor"
 import { OAuth2Server } from 'meteor/leaonline:oauth2-server'
 
-const oauth2server = new OAuth2Server({
+export const oauth2server = new OAuth2Server({
   serverOptions: {
     addAcceptedScopesHeader: true,
     addAuthorizedScopesHeader: true,
