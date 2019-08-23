@@ -9,6 +9,7 @@ import './authorize.html'
 // make redirect url available via settings
 // see https://www.oauth.com/oauth2-servers/redirect-uris/redirect-uri-registration/
 const settings = Meteor.settings.public.oauth
+const authorizedClientsSub = Meteor.subscribe('authorizedOAuth')
 
 // Subscribe the list of already authorized clients
 // to auto accept
@@ -35,13 +36,11 @@ Template.authorize.onCreated(function () {
 
   // subscription
   instance.autorun(() => {
-    const sub = instance.subscribe('authorizedOAuth')
-    instance.state.set('authorizedSubReady', sub.ready())
+    instance.state.set('authorizedSubReady', authorizedClientsSub.ready())
+    console.log(authorizedClientsSub.ready())
   })
 })
 
-// Get the login token to pass to oauth
-// This is the best way to identify the logged user
 Template.authorize.helpers({
   loadComplete () {
     const instance = Template.instance()
@@ -61,7 +60,7 @@ Template.authorize.helpers({
     return Template.instance().state.get('scope')
   },
   code () {
-    return Random.id()
+    return Template.instance().state.get('authorization_code')
   }
 })
 
@@ -71,7 +70,7 @@ Template.authorize.onRendered(function () {
   var data = this.data
   this.autorun(function (c) {
     var user = Meteor.user()
-    console.log(user)
+    console.log("user", user)
     if (user && user.oauth && user.oauth.authorizedClients && user.oauth.authorizedClients.indexOf(data.client_id()) > -1) {
       c.stop()
       window.$('button').click()
