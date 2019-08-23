@@ -33,10 +33,8 @@ Meteor.startup(() => {
   })
 
 
-  oauth2server.registerClient({
+  const clientDoc = oauth2server.registerClient({
     title: 'my client app',
-    secret: 'supersecret1234',
-    clientApp: 'clientAppId1234',
     redirectUris: [ 'http://localhost:4000/_oauth/lea' ]
   })
 })
