@@ -1,6 +1,25 @@
 # Specifications
 
-## Installation and setup
+## Purpose
+
+This application is intended to provide a sophisticated user management system. 
+It runs as a standalone application, which is to be integrated into a greater application landscape.
+
+It is intended to be
+
+* easy to configure
+* safe to use
+* as secure as the underlying technologies and frameworks are
+* easy to connect with external Meteor applications
+* well documented
+
+The application bases on the following main compartments 
+
+* accounts management
+* client app management
+* client user authentication
+* client resource authorization
+
 
 ## Accounts management
 
@@ -51,7 +70,7 @@ also named sub administrator
 
 
 
-## OAuth
+## Client app management
 
 ### Register a client application
 
@@ -63,15 +82,18 @@ also named sub administrator
 * An administrator should be able to register a client application using a certain ui route, providing a registration form
 * It should not be possible for an arbitrary user account to register a client app
 
+## Client user authentication
+
+### Receive an access token
+
+### Receive a refresh token
+
+## Client resource authorization
+
 ### Basic authorization
 
-### Authenticating users using OAuth
+### Access core user data
 
-### Access user data
+### Access user profile data
 
-### Refresh token
-
-## UI
-
-### Administration panel
-
+### Access resources from an external resource server
