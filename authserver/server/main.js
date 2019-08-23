@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Schema } from '../imports/api/schema'
+import './leaOauth'
+
 
 const validateNewUserSchema = Schema.create({
   _id: { type: String },
