@@ -32,23 +32,19 @@ Meteor.startup(() => {
     debug: true
   })
 
-
-  const clientDoc = oauth2server.registerClient({
+  oauth2server.registerClient({
     title: 'my client app',
-    redirectUris: [ 'http://localhost:4000/_oauth/lea' ]
+    homepage: 'http://localhost:4000',
+    redirectUris: [ 'http://localhost:4000/_oauth/lea' ],
+    grants: [ 'authorization_code' ]
+  })
+
+  oauth2server.authenticatedRoute().get('/account', function (req, res, next) {
+    const user = Meteor.users.findOne(req.user.id)
+
+    res.send({
+      id: user._id,
+      name: user.name
+    })
   })
 })
-
-/*
-oauth2server.app.use('')
-
-// Add a route to return account information
-oauth2server.authenticatedRoute('/oauth/account', function (req, res, next) {
-  var user = Meteor.users.findOne(req.user.id)
-
-  res.send({
-    id: user._id,
-    name: user.name
-  })
-})
-*/
