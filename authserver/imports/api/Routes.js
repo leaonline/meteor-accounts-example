@@ -32,7 +32,8 @@ _routes.authorize = {
   isPage: true,
   include () {
     return import('../ui/oauth/authorize/authorize')
-  }
+  },
+  layout: 'authLayout'
 }
 
 Routes.all = function () {

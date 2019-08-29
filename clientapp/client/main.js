@@ -1,5 +1,7 @@
+/* global Accounts */
 import { Template } from 'meteor/templating'
-import { ReactiveVar } from 'meteor/reactive-var'
+import { Tracker } from 'meteor/tracker'
+import { Meteor } from 'meteor/meteor'
 
 import './main.html'
 
@@ -15,7 +17,7 @@ Template.logout.events({
   'click .logoutButton' (event, instance) {
     event.preventDefault()
     Meteor.logout(err => console.error(err))
-  },
+  }
 })
 
 Template.login.events({
@@ -24,5 +26,5 @@ Template.login.events({
     Meteor.loginWithLea({}, (err, res) => {
       console.log(err, res)
     })
-  },
+  }
 })
