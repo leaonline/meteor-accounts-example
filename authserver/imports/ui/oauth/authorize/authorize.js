@@ -6,9 +6,6 @@ import { FlowRouter } from 'meteor/ostrio:flow-router-extra'
 import '../../login/login'
 import './authorize.html'
 
-// make redirect url available via settings
-// see https://www.oauth.com/oauth2-servers/redirect-uris/redirect-uri-registration/
-const settings = Meteor.settings.public.oauth
 const authorizedClientsSub = Meteor.subscribe('authorizedOAuth')
 
 // Subscribe the list of already authorized clients
@@ -51,13 +48,16 @@ Template.authorize.helpers({
 // Auto click the submit/accept button if user already
 // accepted this client
 Template.authorize.onRendered(function () {
-  var data = this.data
-  this.autorun(function (c) {
-    var user = Meteor.user()
+  const instance = this
+  const data = instance.data
+  this.autorun(function (computation) {
+    const user = Meteor.user()
     console.log("user", user)
-    if (user && user.oauth && user.oauth.authorizedClients && user.oauth.authorizedClients.indexOf(data.client_id()) > -1) {
-      c.stop()
-      window.$('button').click()
+    console.log("data", data)
+    if (user && user.oauth && user.oauth.authorizedClients && user.oauth.authorizedClients.includes(data.client_id) > -1) {
+      computation.stop()
+      console.log('auto autorize')
+      window.$('#authorize-button').click()
     }
   })
 })
