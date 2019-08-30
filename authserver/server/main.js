@@ -23,7 +23,7 @@ Accounts.validateNewUser((user) => {
 Meteor.users.deny({
   insert () { return true },
   update () { return true },
-  remove () { return true },
+  remove () { return true }
 })
 
 const createUserSchema = Schema.create({

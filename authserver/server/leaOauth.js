@@ -1,4 +1,4 @@
-import { Meteor } from "meteor/meteor"
+import { Meteor } from 'meteor/meteor'
 import { OAuth2Server } from 'meteor/leaonline:oauth2-server'
 
 export const oauth2server = new OAuth2Server({
@@ -13,6 +13,7 @@ export const oauth2server = new OAuth2Server({
     allowExtendedTokenAttributes: false,
     requireClientAuthentication: true
   },
+
   model: {
     accessTokensCollectionName: 'oauth_access_tokens',
     refreshTokensCollectionName: 'oauth_refresh_tokens',
