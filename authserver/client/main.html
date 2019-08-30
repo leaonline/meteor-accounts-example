@@ -1,13 +1,30 @@
 <head>
-	<title>authserver</title>
+    <title>authserver</title>
 </head>
 
 <template name="layout">
-	<div class="container">
-		{{> nav}}
-		{{#if currentUser}}
-			{{> logout}}
-		{{/if}}
-		{{> yield}}
-	</div>
+    <div class="container">
+        {{> nav}}
+        {{#if currentUser}}
+            <div class="d-block text-right">
+                {{> logout}}
+            </div>
+        {{/if}}
+        {{> yield}}
+    </div>
+</template>
+
+<template name="authLayout">
+    <div class="container">
+        {{#if currentUser}}
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        {{> logout}}
+                    </li>
+                </ul>
+            </nav>
+        {{/if}}
+        {{> yield}}
+    </div>
 </template>
