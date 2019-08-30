@@ -25,6 +25,7 @@ leaonline:oauth2-server
 
 # UI
 aldeed:autoform
+imajus:autoform-bootstrap4
 ostrio:flow-router-extra
 reactive-dict
-
+fortawesome:fontawesome

@@ -25,6 +25,16 @@ _routes.createUser = {
   }
 }
 
+_routes.registerClient = {
+  template: 'registerClient',
+  path: () => '/registerClient',
+  label: 'Register a client application',
+  isPage: true,
+  include () {
+    return import('../ui/admin/register/registerClient')
+  }
+}
+
 _routes.authorize = {
   template: 'authorize',
   path: () => settings.dialogUrl,

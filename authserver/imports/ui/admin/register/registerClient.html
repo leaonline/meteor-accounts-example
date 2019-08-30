@@ -1,0 +1,23 @@
+<template name="registerClient">
+	{{#with registeredClient}}
+		<!--
+		    title,
+			homepage,
+			description,
+			privacyLink,
+			redirectUris,
+			clientId,
+			secret,
+			grants
+    	-->
+		<strong>title</strong>
+		<pre><code>{{this.title}}</code></pre>
+		<strong>ClientId</strong>
+		<pre><code>{{this.clientId}}</code></pre>
+		<strong>Secret</strong>
+		<pre><code>{{this.secret}}</code></pre>
+		<strong>grants</strong>
+	{{else}}
+		{{>quickForm id="registerClientForm" schema=registerClientSchema type="normal"}}
+	{{/with}}
+</template>

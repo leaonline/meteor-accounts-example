@@ -1,8 +1,10 @@
 import { Meteor } from 'meteor/meteor'
 import { OAuth2Server } from 'meteor/leaonline:oauth2-server'
 
+let oauth2server
+
 Meteor.startup(() => {
-  const oauth2server = new OAuth2Server({
+  oauth2server = new OAuth2Server({
     serverOptions: {
       addAcceptedScopesHeader: true,
       addAuthorizedScopesHeader: true,
@@ -30,13 +32,6 @@ Meteor.startup(() => {
     debug: true
   })
 
-  oauth2server.registerClient({
-    title: 'my client app',
-    homepage: 'http://localhost:4000',
-    redirectUris: [ 'http://localhost:4000/_oauth/lea' ],
-    grants: [ 'authorization_code' ]
-  })
-
   oauth2server.authenticatedRoute().get('/account', function (req, res, next) {
     const user = Meteor.users.findOne(req.user.id)
 
@@ -45,4 +40,10 @@ Meteor.startup(() => {
       name: user.name
     })
   })
+})
+
+Meteor.methods({
+  'registerClient' ({ title, homepage, description, privacyLink, redirectUris, grants }) {
+    return oauth2server.registerClient({ title, homepage, description, privacyLink, redirectUris, grants })
+  }
 })

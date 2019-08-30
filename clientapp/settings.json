@@ -1,8 +1,8 @@
 {
   "oauth": {
     "lea": {
-      "secret": "57qYurekPJN5LSRgocAGTBzLeQvjBArM",
-      "clientApp": "6Gx7i3BpFZ4yceY8",
+      "secret": "uYpaakT6uejwCt2D52QTET3FapKLJw6B",
+      "clientApp": "7cqcahAaHLizETrT",
       "accessTokenUrl": "http://localhost:3030/oauth/token",
       "identityUrl": "http://localhost:3030/oauth/ident",
       "dialogUrl": "http://localhost:3030/oauth/authorize",
