@@ -40,9 +40,9 @@ Template.createUser.events({
       templateInstance.state.set('errors', null)
     }
 
-    const {username} = insertDoc
-    const {email} = insertDoc
-    const {password} = insertDoc
+    const { username } = insertDoc
+    const { email } = insertDoc
+    const { password } = insertDoc
     Meteor.call('createNewUser', { username, email, password }, (err, res) => {
       if (err) {
         return templateInstance.state.set('errors', [ err ])
