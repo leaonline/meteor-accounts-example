@@ -1,3 +1,6 @@
+import { Template } from 'meteor/templating'
+import { Meteor } from 'meteor/meteor'
+import { ReactiveDict } from 'meteor/reactive-dict'
 import { ClientSchema } from '../../../api/ClientSchema'
 import { Schema } from '../../../api/schema'
 import { formIsValid, formReset } from '../../utils/formIsUtils'
@@ -16,6 +19,9 @@ Template.registerClient.helpers({
   },
   registeredClient () {
     return Template.instance().state.get('registeredClient')
+  },
+  dialogUrl () {
+    return Meteor.absoluteUrl(Meteor.settings.public.oauth.dialogUrl)
   }
 })
 
