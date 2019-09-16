@@ -17,3 +17,8 @@ meteor npm install
 cd ${PROJECT_ROOT}/resourceserver
 METEOR_PACKAGE_DIRS=${LIB_DIR} meteor update --all-packages
 meteor npm install
+
+cd ${PROJECT_ROOT}/clientapp
+METEOR_PACKAGE_DIRS=${LIB_DIR} meteor update --all-packages
+meteor npm install
+
