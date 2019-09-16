@@ -1,12 +1,16 @@
 {
   "oauth": {
     "lea": {
-      "secret": "uYpaakT6uejwCt2D52QTET3FapKLJw6B",
-      "clientApp": "7cqcahAaHLizETrT",
       "accessTokenUrl": "http://localhost:3030/oauth/token",
       "identityUrl": "http://localhost:3030/oauth/ident",
-      "dialogUrl": "http://localhost:3030/oauth/authorize",
       "redirectUrl": "http://localhost:4000/_oauth/lea"
+    }
+  },
+  "public": {
+    "oauth": {
+      "lea": {
+        "redirectUrl": "http://localhost:4000/_oauth/lea"
+      }
     }
   }
 }
