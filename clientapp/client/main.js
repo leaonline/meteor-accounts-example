@@ -51,7 +51,7 @@ Template.register.helpers({
     return Template.instance().state.get('registerForm')
   },
   redirectUrl () {
-    return 'asdsadad' // Meteor.settings.public.oauth.lea.redirectUrl
+    return Meteor.settings.public.oauth.lea.redirectUrl
   }
 })
 

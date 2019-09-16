@@ -10,7 +10,7 @@ Meteor.methods({
           clientId,
           secret,
           dialogUrl,
-          redirectUrl: '' //Meteor.settings.public.oauth.lea.redirectUrl
+          redirectUrl: Meteor.settings.public.oauth.lea.redirectUrl
         }
       }
     )
