@@ -28,14 +28,27 @@ $ cd clientapp
 $ ./run.sh
 ```
 
-After startup you need to open the mongo in the auth server:
+### Register the client app
 
-```bash
-$ meteor mongo
--> db.oauth_clients.find()
-```
 
-Copy the `client_id` and `secret` into the `settings.json of the `clientapp`.
+1. Go to the client app at `http://localhost:4000/` and click `Register client`
 
-Now you should be able to login with the authserver by opening the auth dialog.
+2. Copy the redirect Url, because we need it in the next step. Keep the tab and the form open, we need it in step 4.
+
+3. Open the auth server's registration page at `http://localhost:3030/registerClient` and enter at least
+
+* the title
+* the homepage (just for ensuring unique entries based on URI)
+* the redirect url
+
+and submit.
+
+4. Copy the credentials from the submit result and paste them into the registration form, finally submit.
+
+5. Go to `http://localhost:3030/createUser` and create a new user. This will be the resource owner.
+
+6. Now you can login with the created user on `http://localhost:4000/` by clicking login with lea
+
+7. Authorize resources and continue to view the received user credentials.
+
 
