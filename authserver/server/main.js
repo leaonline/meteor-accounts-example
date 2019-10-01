@@ -2,7 +2,6 @@ import { Meteor } from 'meteor/meteor'
 import { Schema } from '../imports/api/schema'
 import './leaOauth'
 
-
 const validateNewUserSchema = Schema.create({
   _id: { type: String },
   username: String,
@@ -33,7 +32,9 @@ const createUserSchema = Schema.create({
 })
 
 Meteor.methods({
-  'createNewUser' ({ username, email, password }) {
-    return Accounts.createUser({ username, email, password })
+  'createNewUser' ({ username, email, password, firstName, lastName }) {
+    const userId = Accounts.createUser({ username, email, password })
+    Meteor.users.update(userId, { $set: { firstName, lastName } })
+    return userId
   }
 })

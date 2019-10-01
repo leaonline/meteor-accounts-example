@@ -9,6 +9,14 @@ const createUserSchema = Schema.create({
     autoform: {
       type: 'password'
     }
+  },
+  firstName: {
+    type: String,
+    optional: true
+  },
+  lastName: {
+    type: String,
+    optional: true
   }
 })
 
@@ -40,10 +48,7 @@ Template.createUser.events({
       templateInstance.state.set('errors', null)
     }
 
-    const { username } = insertDoc
-    const { email } = insertDoc
-    const { password } = insertDoc
-    Meteor.call('createNewUser', { username, email, password }, (err, res) => {
+    Meteor.call('createNewUser', insertDoc, (err, res) => {
       if (err) {
         return templateInstance.state.set('errors', [ err ])
       }

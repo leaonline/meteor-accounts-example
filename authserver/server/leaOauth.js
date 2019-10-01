@@ -41,7 +41,11 @@ Meteor.startup(() => {
     })
     const body = JSON.stringify({
       id: user._id,
-      name: user.username
+      login: user.username,
+      email: user.emails[0].address,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      name: `${user.firstName} ${user.lastName}`
     })
     res.end(body)
   })

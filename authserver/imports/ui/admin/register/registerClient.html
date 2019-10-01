@@ -12,12 +12,21 @@
     	-->
 		<strong>title</strong>
 		<pre><code>{{this.title}}</code></pre>
+
 		<strong>ClientId</strong>
 		<pre><code>{{this.clientId}}</code></pre>
+
 		<strong>Secret</strong>
 		<pre><code>{{this.secret}}</code></pre>
+
 		<strong>DialogUrl</strong>
 		<pre><code>{{dialogUrl}}</code></pre>
+
+        <strong>Token Url</strong>
+        <pre><code>{{tokenUrl}}</code></pre>
+
+        <strong>IdentityUrl</strong>
+        <pre><code>{{identityUrl}}</code></pre>
 	{{else}}
 		{{>quickForm id="registerClientForm" schema=registerClientSchema type="normal"}}
 	{{/with}}

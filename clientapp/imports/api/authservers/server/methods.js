@@ -1,7 +1,7 @@
 /* global ServiceConfiguration Meteor */
 
 Meteor.methods({
-  'addAuthClient' ({ title, clientId, secret, dialogUrl, redirectUrl }) {
+  'addAuthClient' ({ title, clientId, secret, dialogUrl, accessTokenUrl, identityUrl }) {
     ServiceConfiguration.configurations.upsert(
       { service: 'lea' },
       {
@@ -10,6 +10,8 @@ Meteor.methods({
           clientId,
           secret,
           dialogUrl,
+          accessTokenUrl,
+          identityUrl,
           redirectUrl: Meteor.settings.public.oauth.lea.redirectUrl
         }
       }

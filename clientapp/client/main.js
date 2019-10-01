@@ -35,7 +35,9 @@ Template.login.events({
 const registerSchema = new SimpleSchema({
   clientId: String,
   secret: String,
-  dialogUrl: String
+  dialogUrl: String,
+  accessTokenUrl: String,
+  identityUrl: String
 }, { tracker: Tracker })
 
 Template.register.onCreated(function () {

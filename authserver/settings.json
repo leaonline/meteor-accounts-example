@@ -3,14 +3,16 @@
     "secret": "uYpaakT6uejwCt2D52QTET3FapKLJw6B",
     "clientApp": "7cqcahAaHLizETrT",
     "accessTokenUrl": "/oauth/token",
-    "identityUrl": "/oauth/account",
+    "identityUrl": "/oauth/ident",
     "redirectUrl": "http://localhost:4000/_oauth/lea"
   },
   "public": {
     "oauth": {
       "clientApp": "7cqcahAaHLizETrT",
       "redirectUrl": "http://localhost:4000/_oauth/lea",
-      "dialogUrl": "/oauth/authorize"
+      "dialogUrl": "/oauth/authorize",
+      "accessTokenUrl": "/oauth/token",
+      "identityUrl": "/oauth/ident"
     }
   }
 }

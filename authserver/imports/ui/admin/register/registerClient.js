@@ -22,6 +22,12 @@ Template.registerClient.helpers({
   },
   dialogUrl () {
     return Meteor.absoluteUrl(Meteor.settings.public.oauth.dialogUrl)
+  },
+  tokenUrl () {
+    return Meteor.absoluteUrl(Meteor.settings.public.oauth.accessTokenUrl)
+  },
+  identityUrl () {
+    return Meteor.absoluteUrl(Meteor.settings.public.oauth.identityUrl)
   }
 })
 

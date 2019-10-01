@@ -1,9 +1,7 @@
 {
   "oauth": {
     "lea": {
-      "accessTokenUrl": "http://localhost:3030/oauth/token",
-      "identityUrl": "http://localhost:3030/oauth/ident",
-      "redirectUrl": "http://localhost:4000/_oauth/lea"
+      "identity": ["firstName", "lastName", "login"]
     }
   },
   "public": {

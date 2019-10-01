@@ -1,37 +1,37 @@
 <head>
-	<title>clientapp</title>
+    <title>clientapp</title>
 </head>
 
 <body>
 <div class="container">
-	{{#with currentUser}}
-		<h1>Loggin in!</h1>
-		<pre><code>{{stringify this}}</code></pre>
-		{{>logout}}
-	{{else}}
-		{{> login}}
-	{{/with}}
-	{{> register}}
+    {{> register}}
+    {{#with currentUser}}
+        <h1>Logged in!</h1>
+        <pre><code>{{stringify this}}</code></pre>
+        {{>logout}}
+    {{else}}
+        {{> login}}
+    {{/with}}
 </div>
 </body>
 
 <template name="logout">
-	<button class="btn btn-secondary loginButton">Click Me to login with lea</button>
+    <button class="btn btn-outline-secondary logoutButton">Logout</button>
 </template>
 
 
 <template name="login">
-	<button class="btn btn-secondary loginButton">Click Me to login with lea</button>
+    <button class="btn btn-secondary loginButton">Click Me to login with lea</button>
 </template>
 
 <template name="register">
-	{{#if registerForm}}
-		<p>Please open the auth server page and register this client app.</p>
-		<p>It will ask you for a redirect url, please use this: {{redirectUrl}}</p>
-		<p>When you have finished the registration, the auth service will provide you credentials. Please enter them
-		   here:</p>
-		{{> quickForm id="registerForm" schema=registerSchema type="normal"}}
-	{{else}}
-		<button class="btn btn-secondary register-button">Register client</button>
-	{{/if}}
+    {{#if registerForm}}
+        <p>Please open the auth server page and register this client app.</p>
+        <p>It will ask you for a redirect url, please use this: {{redirectUrl}}</p>
+        <p>When you have finished the registration, the auth service will provide you credentials. Please enter them
+            here:</p>
+        {{> quickForm id="registerForm" schema=registerSchema type="normal"}}
+    {{else}}
+        <button class="btn btn-secondary register-button">Register client</button>
+    {{/if}}
 </template>
