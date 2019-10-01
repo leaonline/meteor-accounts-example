@@ -32,13 +32,18 @@ Meteor.startup(() => {
     debug: true
   })
 
-  oauth2server.authenticatedRoute().get('/account', function (req, res, next) {
-    const user = Meteor.users.findOne(req.user.id)
+  oauth2server.authenticatedRoute().get('/oauth/ident', function (req, res, next) {
+    console.log('secret route', req.data)
+    const user = Meteor.users.findOne(req.data.user.id)
 
-    res.send({
-      id: user._id,
-      name: user.name
+    res.writeHead(200, {
+      'Content-Type': 'application/json',
     })
+    const body = JSON.stringify({
+      id: user._id,
+      name: user.username
+    })
+    res.end(body)
   })
 })
 
